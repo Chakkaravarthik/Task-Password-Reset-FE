@@ -18,6 +18,11 @@ const ForgotPassword = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await forgetpassword(email);
+    if(data.code===1){
+        setMsg('Password reset link sent successfully')
+    }else{
+        setMsg('Pls check the email')
+    }
     
   };
 

@@ -47,11 +47,11 @@ const forgetpassword = async (email)=>{
    }
 }
 
-const resetpassword = async ({token,password})=>{
+const resetpassword = async ({token, password})=>{
     try{
         const res=await fetch(`${URL}/reset-password`,{
             method: "POST",
-            body: JSON.stringify({token, password}),
+            body: JSON.stringify({ token,password}),
             headers: {
                 "Content-Type": "application/json;charset=utf-8",
             },
@@ -63,6 +63,21 @@ const resetpassword = async ({token,password})=>{
 
 }
 
+const verifypassword = async ({token}) =>{
+    try{
+        const res= await fetch(`${URL}/verify-password`,{
+            method: "POST",
+            body: JSON.stringify({token}),
+            headers: {
+                "Content-Type": "application/json;charset=utf-8",
+            },
+        })
+        return await res.json();
+    }catch(e){
+        console.log(e.message)
+    }
+}
 
 
-export {usersignup , userlogin , forgetpassword, resetpassword};
+
+export {usersignup , userlogin , forgetpassword, resetpassword, verifypassword};
