@@ -1,4 +1,4 @@
-const URL = 'http://localhost:7500'
+const URL = import.meta.env.VITE_LOCAL_URI
 // user register 
 const usersignup = async (userdata) =>{
     try{
